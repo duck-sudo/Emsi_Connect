@@ -1,8 +1,10 @@
-from django.urls import path
-from .views import get_posts,create_posts,posts_detail
+from django.contrib import admin
+from django.urls import path, include
+from api import views
 
 urlpatterns = [
-    path('posts/', get_posts , name ='get_posts'),
-    path('posts/create/', create_posts , name ='create_posts'),
-    path('posts/<int:pk>', posts_detail ,name='posts_detail' )
+    path('admin/', admin.site.urls),
+    path('posts/', views.get_posts, name='get_posts'),  
+    path('posts/create/', views.create_posts, name='create_posts'),  
+    path('posts/<int:pk>/', views.posts_detail, name='posts_detail'),  
 ]
